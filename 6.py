@@ -1,18 +1,12 @@
-import math
-
-def is_prime(n):
-    if n == 1: return False
-    for i in range(2, int(math.sqrt(n))+1):
-        if n%i == 0: return False
-    return True
-
-def prime_in_range(a, b):
-    primes = []
-    for n in range(a, b+1):
-        if is_prime(n):
-            primes.append(n)
-    return primes
+def fib(n):
+    a = 0; b = 1
+    for i in range(n):
+        a, b = b, a+b
+    return b
 
 if __name__ == '__main__':
-    for i in prime_in_range(1, 100):
-        print i,
+    i = int(raw_input("Please enter your number:\t"))
+    print "The {}-th term of fibonacci sequence is {}".format(i, fib(i))
+    print "And the ratio is given by"
+    for j in range(i):
+        print "\t{}".format(fib(j+1)/float(fib(j)))
